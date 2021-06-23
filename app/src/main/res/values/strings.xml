@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">AppKEA5PermisoCamara</string>
+    <string name="titulofoto">APP TOMAR FOTO Y COMPARTIR</string>
+    <string name="valbtntomarfoto">HACER CLIC PARA TOMAR FOTO</string>
+    <string name="valbtncompartir">HACER CLIC PARA COMPARTIR FOTO</string>
+</resources>
