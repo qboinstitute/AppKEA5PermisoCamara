@@ -40,6 +40,22 @@ class MainActivity : AppCompatActivity() {
                 solicitarPermisoEscritura()
             }
         }
+        binding.btncompartir.setOnClickListener {
+            if(rutaFotoActual != ""){
+                val contentUri = obtenerContentUri(File(rutaFotoActual))
+                val intentCompartir = Intent().apply {
+                    action = Intent.ACTION_SEND
+                    putExtra(Intent.EXTRA_STREAM, contentUri)
+                    addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                    type = "image/jpeg"
+                }
+                val menuIntent = Intent.createChooser(intentCompartir,
+                    "Compartir Imagen")
+                if(intentCompartir.resolveActivity(packageManager) != null){
+                    startActivity(menuIntent)
+                }
+            }
+        }
     }
     private fun validarPermisoEscritura() : Boolean{
         val permiso = ContextCompat.checkSelfPermission(
